@@ -1,6 +1,20 @@
-SET ISO8859-2
+SET UTF-8
 
-TRY ABCDEFGHIJKLMNOPQRSTUVWXYæÆèÈðÐ¾®abcdefghijklmnopqrstuvwxy
+TRY ćčšđžĆČŠĐŽaioernvstukdjpmlhgzbcfAIOERNVSTUKDJPMLHGZBCF
+
+KEY qwertyuiopšđž|asdfghjklčć|zxcvbnm
+
+REP 3
+REP dj đ
+REP dz dž
+REP f hv
+
+MAP 5
+MAP cč
+MAP cć
+MAP sš
+MAP dđ
+MAP zž
 
 SFX A Y 13
 SFX A 0 a [^aeiou]
@@ -17,10 +31,9 @@ SFX A e a e
 SFX A e u e
 SFX A e em e
 
-
 SFX B Y 5
 SFX B ti m ti
-SFX B ti ¹ ti
+SFX B ti š ti
 SFX B ti mo ti
 SFX B ti te ti
 SFX B ti u ti
@@ -29,11 +42,11 @@ SFX C Y 4
 SFX C ti h ti
 SFX C ti smo ti
 SFX C ti ste ti
-SFX C ti ¹e ti
+SFX C ti še ti
 
 SFX D Y 5
 SFX D ti h ti
-SFX D ti ¹e ti
+SFX D ti še ti
 SFX D ti smo ti
 SFX D ti ste ti
 SFX D ti hu ti
@@ -43,23 +56,19 @@ SFX E ti o ti
 SFX E ti li ti
 SFX E ti la ti
 
-
-
 SFX F Y 5
 SFX F ti h ti
-SFX F ti ¹e ti
+SFX F ti še ti
 SFX F ti smo ti
 SFX F ti ste ti
 SFX F iti hu ti
 
 SFX G Y 5
 SFX G ti m ti
-SFX G ti ¹ ti
+SFX G ti š ti
 SFX G ti mo ti
 SFX G ti te ti
 SFX G iti e iti
-
-
 
 SFX H Y 6
 SFX H 0 a .
@@ -85,7 +94,6 @@ SFX J 0 ih .
 SFX J 0 im .
 SFX J 0 o .
 
-
 SFX K Y 6
 SFX K 0 a .
 SFX K 0 u .
@@ -93,7 +101,6 @@ SFX K 0 i .
 SFX K 0 ih .
 SFX K 0 ima .
 SFX K 0 o .
-
 
 SFX L Y 2
 SFX L 0 oj .
