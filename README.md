@@ -1,4 +1,4 @@
-bs_BS
+bs_BA
 =====
 
-Riječnik i affix pravila za provjeru pravopisa na bosanskom jeziku.
+Rječnik i affix pravila za provjeru pravopisa na bosanskom jeziku.
