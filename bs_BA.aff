@@ -6,14 +6,24 @@ TRY ćčšđžĆČŠĐŽaioernvstukdjpmlhgzbcfAIOERNVSTUKDJPMLHGZBCF.
 # da smatra „itd“ pogrešnim a „itd.“ ispravnim.
 WORDCHARS .
 
+# Traži i predloži riječi sa jedim različitim slovom umjesto kojeg se
+# stavlja susjedno slovo na tastaturi. Raspored tastature je označen
+# vertikalnom crticom.
 KEY qwertyuiopšđž|asdfghjklčć|zxcvbnm
 
-REP 4
-REP dj đ
-REP dz dž
-REP e  ije
-REP f  hv
+# Predloži ove ispravke na vrhu liste, ispred standardnog n-grama. Koristi se
+# za za ustaljene greške specifične za jezik.
+REP 7
+REP dj     đ
+REP dz     dž
+REP e      ije
+REP f      hv
+REP stio   htio
+REP stjela htjela
+REP stjelo htjelo
 
+# Smatraj slova u MAP tabeli povezanima u svrhu poboljšanja prijedloga za
+# ispravku.
 MAP 5
 MAP cč
 MAP cć
@@ -21,8 +31,31 @@ MAP sš
 MAP dđ
 MAP zž
 
-# Padeži za riječi koje se završavaju bilo kojim suglasnikom
-# i samoglasnicima a, o, e
+# Prefiski SI sistema jedinica.
+PFX s Y 20
+PFX s   0    da   .
+PFX s   0    h    .
+PFX s   0    k    .
+PFX s   0    M    .
+PFX s   0    G    .
+PFX s   0    T    .
+PFX s   0    P    .
+PFX s   0    E    .
+PFX s   0    Z    .
+PFX s   0    Y    .
+PFX s   0    d    .
+PFX s   0    c    .
+PFX s   0    m    .
+PFX s   0    μ    .
+PFX s   0    n    .
+PFX s   0    p    .
+PFX s   0    f    .
+PFX s   0    a    .
+PFX s   0    z    .
+PFX s   0    y    .
+
+# Dekliniraj (promijeni imenice, pridjeve, zamjenice, i brojeve po padežima)
+# riječi koje se završavaju bilo kojim suglasnikom i samoglasnicima a, o, e.
 SFX A Y 13
 SFX A   0    a    [^aeiou]
 SFX A   0    u    [^aeiou]
@@ -38,6 +71,7 @@ SFX A   e    a    e
 SFX A   e    u    e
 SFX A   e    em   e
 
+# Konjugiraj (promjeni glagole po licima) u sadašnjem vremenu.
 SFX B Y 5
 SFX B   ti   m    ti
 SFX B   ti   š    ti
@@ -127,11 +161,23 @@ SFX W   iti  jivi .
 SFX W   iti  jive .
 
 # Množina
-SFX N Y 7
+SFX N Y 8
 SFX N   0    i    l
+SFX N   0    ovi  d
 SFX N   k    ci   ek
 SFX N   k    ci   [^dlmn]ak
 SFX N   ak   ci   nak
 SFX N   ak   ci   mak
 SFX N   ak   ci   lak
 SFX N   dak  ci   dak
+
+# ICONV, OCONV - Input, output conversions.
+# Ne smatraj riječi koje sadrže ligature pogrešnim tj. smatraj datu ligaturu
+# ekvivalentnu slovu ili grupi slova koja slijedi.
+ICONV 2
+ICONV ﬁ fi
+ICONV ﬂ fl
+
+# Zabrani smatranje verzije riječi sa velikim slovima ispravnom. Korisno za
+# jedinice mjere, valute, i riječi koje je pogrešno počinjati velikim slovom.
+KEEPCASE k
