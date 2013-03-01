@@ -1,6 +1,10 @@
 SET UTF-8
 
-TRY ćčšđžĆČŠĐŽaioernvstukdjpmlhgzbcfAIOERNVSTUKDJPMLHGZBCF
+TRY ćčšđžĆČŠĐŽaioernvstukdjpmlhgzbcfAIOERNVSTUKDJPMLHGZBCF.
+
+# Prihvati tačku kao slovo tj. kao znak koji tvori riječ. Omogućava provjeri
+# da smatra „itd“ pogrešnim a „itd.“ ispravnim.
+WORDCHARS .
 
 KEY qwertyuiopšđž|asdfghjklčć|zxcvbnm
 
