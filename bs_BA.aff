@@ -54,6 +54,9 @@ PFX s   0    a    .
 PFX s   0    z    .
 PFX s   0    y    .
 
+PFX a Y 1
+PFX a   0    ne   .
+
 # Dekliniraj (promijeni imenice, pridjeve, zamjenice, i brojeve po padežima)
 # riječi koje se završavaju bilo kojim suglasnikom i samoglasnicima a, o, e.
 SFX A Y 13
