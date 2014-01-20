@@ -13,14 +13,32 @@ KEY qwertyuiopšđž|asdfghjklčć|zxcvbnm
 
 # Predloži ove ispravke na vrhu liste, ispred standardnog n-grama. Koristi se
 # za za ustaljene greške specifične za jezik.
-REP 7
-REP dj     đ
-REP dz     dž
-REP e      ije
-REP f      hv
-REP stio   htio
-REP stjela htjela
-REP stjelo htjelo
+REP 25
+REP dj         đ
+REP dz         dž
+REP e          ije
+REP f          hv
+REP ch         č
+REP siječanj   januar
+REP veljča     februar
+REP ožuljak    mart
+REP travanj    april
+REP svibanj    maj
+REP lipanj     jun
+REP srpanj     jul
+REP kolovoz    avgust
+REP rujan      septembar
+REP listopad   oktobar
+REP studeni    novembar
+REP prosinac   decembar
+REP kruh       hljeb
+REP rabljen    polovan
+REP rabljena   polovan
+REP rabljeno   polovan
+REP domoljub   patriota
+REP ravnatelj  direktor
+REP skladatelj kompozitor
+REP ženjena    udata
 
 # Smatraj slova u MAP tabeli povezanima u svrhu poboljšanja prijedloga za
 # ispravku.
@@ -30,6 +48,12 @@ MAP cć
 MAP sš
 MAP dđ
 MAP zž
+
+# PFX i SFX dodaju prefikse i sufike na korijen riječi. Sintaksa je:
+# PFX <zastavica> <kombinovanje-dozvoljeno?> <broj-linija-koje-slijede>
+# PFX <zastavica> <šta-se-briše> <šta-se-dodaje> <kada-se-dodaje>
+# . - dodaj prefiks/sufiks na riječ sa bilo kojim završetkom.
+# 0 - ne briši ništa prije dodavanja prefiksa/sufiksa
 
 # Prefiski SI sistema jedinica.
 PFX s Y 20
@@ -54,6 +78,7 @@ PFX s   0    a    .
 PFX s   0    z    .
 PFX s   0    y    .
 
+# Prefiks „ne-”
 PFX a Y 1
 PFX a   0    ne   .
 
@@ -95,6 +120,7 @@ SFX D   ti   smo  ti
 SFX D   ti   ste  ti
 SFX D   ti   hu   ti
 
+# Konjugiraj glagol u prošlom vremenu.
 SFX E Y 3
 SFX E   ti   o    ti
 SFX E   ti   li   ti
@@ -156,13 +182,6 @@ SFX M   a    i    a
 SFX M   a    o    a
 SFX M   a    u    a
 
-SFX W Y 5
-SFX W   iti  jiv  .
-SFX W   iti  jiva .
-SFX W   iti  jivo .
-SFX W   iti  jivi .
-SFX W   iti  jive .
-
 # Množina
 SFX N Y 8
 SFX N   0    i    l
@@ -173,6 +192,29 @@ SFX N   ak   ci   nak
 SFX N   ak   ci   mak
 SFX N   ak   ci   lak
 SFX N   dak  ci   dak
+
+# Konjugiraj nepravilne glagole koji se završavaju sa „-ovati” i „-sati” u
+# sadašnjem vremenu.
+SFX O Y 12
+SFX O   ovati ujem  ovati
+SFX O   ovati uješ  ovati
+SFX O   ovati uje   ovati
+SFX O   ovati ujemo ovati
+SFX O   ovati ujete ovati
+SFX O   ovati uju   ovati
+SFX O   sati  šem   sati
+SFX O   sati  šeš   sati
+SFX O   sati  še    sati
+SFX O   sati  šemo  sati
+SFX O   sati  šete  sati
+SFX O   sati  šu    sati
+
+SFX W Y 5
+SFX W   iti  jiv  .
+SFX W   iti  jiva .
+SFX W   iti  jivo .
+SFX W   iti  jivi .
+SFX W   iti  jive .
 
 # ICONV, OCONV - Input, output conversions.
 # Ne smatraj riječi koje sadrže ligature pogrešnim tj. smatraj datu ligaturu
