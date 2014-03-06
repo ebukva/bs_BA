@@ -1,4 +1,4 @@
-210730
+210731
 
 # Veliko i malo slovo se razlikuju u svim pozicijama osim u prvoj poziciji
 # u riječi. Npr. provjera će smatrati i „prozor” i „Prozor” ispravnim na
@@ -6,6 +6,10 @@
 # „kWh”, jedino taj redoslijed velikih i malih slova se smatra ispravnim.
 # U slučaju unosa svim velikim slovima (caps lock), sve varijante se smatraju
 # ispravnim.
+#
+# Slova koje slijede kosu crtu na kraju riječi su zastavice. Svaka zastavica
+# generiše više riječi dodavajući sufikse i prefikse na korijen riječi.
+# Zastavice i tranformacije koje one vrše su definisane u bs_BA.aff.
 
 a
 AA # baterije
@@ -2290,7 +2294,6 @@ animoziteti
 animozitetima
 Ankara
 Ankare
-Ankari
 Ankari
 Ankaro
 Ankarom
@@ -41535,8 +41538,6 @@ holandskoj
 holandskom
 holandsku
 holding/AL
-holdingih
-holdingim
 Holiday/!
 holistička/A
 holistički

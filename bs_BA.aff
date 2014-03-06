@@ -58,6 +58,10 @@ MAP zž
 # . - dodaj prefiks/sufiks na riječ sa bilo kojim završetkom.
 # 0 - ne briši ništa prije dodavanja prefiksa/sufiksa
 
+# Ne predlaži dvije riječi na mjesto jedne pogrešno napisane riječi. Npr.
+# ako „Senad” nije u korpusu, „Se nad” i „Se-nad” neće biti među prijedlozima
+NOSPLITSUGS
+
 # Prefiski SI sistema jedinica.
 PFX s Y 20
 PFX s   0    da   .
