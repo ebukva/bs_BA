@@ -13,7 +13,7 @@ KEY qwertyuiopšđž|asdfghjklčć|zxcvbnm
 
 # Predloži ove ispravke na vrhu liste, ispred standardnog n-grama. Koristi se
 # za za ustaljene greške specifične za jezik.
-REP 25
+REP 28
 REP dj         đ
 REP dz         dž
 REP e          ije
@@ -38,7 +38,10 @@ REP rabljeno   polovan
 REP domoljub   patriota
 REP ravnatelj  direktor
 REP skladatelj kompozitor
+REP mirovina   penzija
 REP ženjena    udata
+REP čimbenik   faktor
+REP zrakoplov  avion
 
 # Smatraj slova u MAP tabeli povezanima u svrhu poboljšanja prijedloga za
 # ispravku.
@@ -121,10 +124,12 @@ SFX D   ti   ste  ti
 SFX D   ti   hu   ti
 
 # Konjugiraj glagol u prošlom vremenu.
-SFX E Y 3
+SFX E Y 5
 SFX E   ti   o    ti
-SFX E   ti   li   ti
 SFX E   ti   la   ti
+SFX E   ti   lo   ti
+SFX E   ti   li   ti
+SFX E   ti   le   ti
 
 SFX F Y 5
 SFX F   ti   h    ti
@@ -195,19 +200,25 @@ SFX N   dak  ci   dak
 
 # Konjugiraj nepravilne glagole koji se završavaju sa „-ovati” i „-sati” u
 # sadašnjem vremenu.
-SFX O Y 12
-SFX O   ovati ujem  ovati
-SFX O   ovati uješ  ovati
-SFX O   ovati uje   ovati
-SFX O   ovati ujemo ovati
-SFX O   ovati ujete ovati
-SFX O   ovati uju   ovati
-SFX O   sati  šem   sati
-SFX O   sati  šeš   sati
-SFX O   sati  še    sati
-SFX O   sati  šemo  sati
-SFX O   sati  šete  sati
-SFX O   sati  šu    sati
+SFX O Y 18
+SFX O   ovati ujem   ovati
+SFX O   ovati uješ   ovati
+SFX O   ovati uje    ovati
+SFX O   ovati ujemo  ovati
+SFX O   ovati ujete  ovati
+SFX O   ovati uju    ovati
+SFX O   sati  šem    sati
+SFX O   sati  šeš    sati
+SFX O   sati  še     sati
+SFX O   sati  šemo   sati
+SFX O   sati  šete   sati
+SFX O   sati  šu     sati
+SFX O   zati  zujem  zati
+SFX O   zati  zuješ  zati
+SFX O   zati  zuje   zati
+SFX O   zati  zujemo zati
+SFX O   zati  zujete zati
+SFX O   zati  zuju   zati
 
 SFX W Y 5
 SFX W   iti  jiv  .
@@ -226,3 +237,6 @@ ICONV ﬂ fl
 # Zabrani smatranje verzije riječi sa velikim slovima ispravnom. Korisno za
 # jedinice mjere, valute, i riječi koje je pogrešno počinjati velikim slovom.
 KEEPCASE k
+
+# Ne predlaži riječi sa ovom zastavicom. Korisno za vulgarne riječi i sl.
+NOSUGGEST !
