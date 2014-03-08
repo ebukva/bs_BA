@@ -106,7 +106,7 @@ SFX A   e    a    e
 SFX A   e    u    e
 SFX A   e    em   e
 
-# Konjugiraj (promjeni glagole po licima) u sadašnjem vremenu.
+# Konjugiraj (promjeni pravilne glagole po licima) u sadašnjem vremenu.
 SFX B Y 5
 SFX B   ti   m    ti
 SFX B   ti   š    ti
@@ -202,9 +202,9 @@ SFX N   ak   ci   mak
 SFX N   ak   ci   lak
 SFX N   dak  ci   dak
 
-# Konjugiraj nepravilne glagole koji se završavaju sa „-ovati” i „-sati” u
-# sadašnjem vremenu.
-SFX O Y 18
+# Konjugiraj nepravilne glagole koji se završavaju sa „-ovati”, „-sati” i
+# „-zati” u sadašnjem vremenu.
+SFX O Y 24
 SFX O   ovati ujem   ovati
 SFX O   ovati uješ   ovati
 SFX O   ovati uje    ovati
@@ -223,6 +223,13 @@ SFX O   zati  zuje   zati
 SFX O   zati  zujemo zati
 SFX O   zati  zujete zati
 SFX O   zati  zuju   zati
+SFX O   cati  čem    cati
+SFX O   cati  češ    cati
+SFX O   cati  če     cati
+SFX O   cati  čemo   cati
+SFX O   cati  čete   cati
+SFX O   cati  ču     cati
+
 
 SFX W Y 5
 SFX W   iti  jiv  .
