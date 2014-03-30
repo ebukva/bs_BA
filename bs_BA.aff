@@ -4,6 +4,11 @@ TRY ćčšđžĆČŠĐŽaioernvstukdjpmlhgzbcfAIOERNVSTUKDJPMLHGZBCF.
 
 # Prihvati tačku kao slovo tj. kao znak koji tvori riječ. Omogućava provjeri
 # da smatra „itd“ pogrešnim a „itd.“ ispravnim.
+# Obratite pažnju da tokenizacija (šta se smatra riječju) zavisi od
+# pojedinačnog softvera i ne zavisi od HunSpella. OpenOffice.org na primjer,
+# zbog načina na koji implementira tokenizaciju, će da smatra riječi sa
+# tačkom iz korpusa pogrešnim. „WORDCHARS .” komandu i riječi sa tačkom iz
+# korpusa je potrebno ukloniti za OpenOffice.org upotrebu.
 WORDCHARS .
 
 # Traži i predloži riječi sa jedim različitim slovom umjesto kojeg se
@@ -13,12 +18,15 @@ KEY qwertyuiopšđž|asdfghjklčć|zxcvbnm
 
 # Predloži ove ispravke na vrhu liste, ispred standardnog n-grama. Koristi se
 # za za ustaljene greške specifične za jezik.
-REP 28
+REP 32
 REP dj         đ
 REP dz         dž
 REP e          ije
 REP f          hv
 REP ch         č
+REP irati      ovati
+REP irati      isati
+REP iran       ovan
 REP siječanj   januar
 REP veljča     februar
 REP ožuljak    mart
@@ -32,9 +40,10 @@ REP listopad   oktobar
 REP studeni    novembar
 REP prosinac   decembar
 REP kruh       hljeb
+REP tisuć      hiljad
 REP rabljen    polovan
-REP rabljena   polovan
-REP rabljeno   polovan
+REP rabljena   polovna
+REP rabljeno   polovno
 REP domoljub   patriota
 REP ravnatelj  direktor
 REP skladatelj kompozitor
@@ -230,6 +239,125 @@ SFX O   cati  čemo   cati
 SFX O   cati  čete   cati
 SFX O   cati  ču     cati
 
+# Dekliniraj imenice po padežima (za lična i geografska strana imena)
+#
+# Lična i geo. strana imena na -o, -i, -y, ili -ee između korijena i nastavka
+# dobivaju „j”. Npr. Tokio, Tokija, Tokiju; Ghandi, Ghandija, Ghandiju;
+# Kennedy, Kennedyja, Kennedyju; Lee, Leeja, Leeju. Ako je -y samo
+# pravopisni znak ili ako se čita kao j (a ne kao i), ne dodaje se „j”.
+# Npr. Nagy, Nagya; Kallay, Kallaya.
+SFX P Y 66
+SFX P   0    a      [^aeiouyc]      pž:gen br:jed
+SFX P   0    u      [^aeiouyc]      pž:dat br:jed
+SFX P   0    a      [^aeiouyc]      pž:aku br:jed
+SFX P   0    e      [^aeiouhćškyc]  pž:vok br:jed
+SFX P   0    u      [ćš]            pž:vok br:jed
+SFX P   k    če     k               pž:vok br:jed
+SFX P   0    om     [^aeioućšyc]    pž:ins br:jed
+SFX P   0    em     [ćš]            pž:ins br:jed
+SFX P   0    u      [^aeioućyc]     pž:lok br:jed
+SFX P   0    i      [^aeiouyc]      pž:nom br:mno
+SFX P   0    a      [^aeiouyc]      pž:gen br:mno
+SFX P   0    ima    [^aeiouyc]      pž:dat br:mno
+SFX P   0    a      [^aeiouyc]      pž:aku br:mno
+SFX P   0    ima    [^aeiouyc]      pž:ins br:mno
+SFX P   0    ima    [^aeiouyc]      pž:lok br:mno
+SFX P   a    e      a               pž:gen br:jed
+SFX P   a    i      a               pž:dat br:jed
+SFX P   a    u      a               pž:aku br:jed
+SFX P   a    a      a               pž:vok br:jed
+SFX P   a    om     a               pž:ins br:jed
+SFX P   a    e      a               pž:nom br:mno
+SFX P   a    a      a               pž:gen br:mno
+SFX P   a    ama    a               pž:dat br:mno
+SFX P   a    e      a               pž:aku br:mno
+SFX P   a    e      a               pž:vok br:mno
+SFX P   a    ama    a               pž:ins br:mno
+SFX P   a    ama    a               pž:lok br:mno
+SFX P   0    ja     y               pž:gen br:jed
+SFX P   0    ju     y               pž:dat br:jed
+SFX P   0    ja     y               pž:aku br:jed
+SFX P   0    jom    y               pž:ins br:jed
+SFX P   0    ju     y               pž:lok br:jed
+SFX P   0    ja     y               pž:gen br:mno
+SFX P   0    jima   y               pž:dat br:mno
+SFX P   0    je     y               pž:aku br:mno
+SFX P   0    jima   y               pž:ins br:mno
+SFX P   0    jima   y               pž:lok br:mno
+SFX P   0    ja     i               pž:gen br:jed
+SFX P   0    ju     i               pž:dat br:jed
+SFX P   0    ja     i               pž:aku br:jed
+SFX P   0    jem    i               pž:ins br:jed
+SFX P   0    ju     i               pž:lok br:jed
+SFX P   0    ji     i               pž:nom br:mno
+SFX P   0    ja     i               pž:gen br:mno
+SFX P   0    jima   i               pž:dat br:mno
+SFX P   0    je     i               pž:aku br:mno
+SFX P   0    jima   i               pž:ins br:mno
+SFX P   0    jima   i               pž:lok br:mno
+SFX P   o    a      o               pž:gen br:jed
+SFX P   o    u      o               pž:dat br:jed
+SFX P   o    a      o               pž:aku br:jed
+SFX P   o    o      o               pž:vok br:jed
+SFX P   o    om     o               pž:ins br:jed
+SFX P   o    u      o               pž:lok br:jed
+SFX P   o    e      o               pž:aku br:mno
+SFX P   ac   ca     ac              pž:gen br:jed
+SFX P   ac   cu     ac              pž:dat br:jed
+SFX P   ac   ca     ac              pž:aku br:jed
+SFX P   ac   com    ac              pž:ins br:jed
+SFX P   ac   com    ac              pž:lok br:jed
+SFX P   ac   ci     ac              pž:nom br:mno
+SFX P   ac   aca    ac              pž:gen br:mno
+SFX P   ac   cima   ac              pž:dat br:mno
+SFX P   ac   ce     ac              pž:aku br:mno
+SFX P   ac   cima   ac              pž:ins br:mno
+SFX P   ac   cima   ac              pž:lok br:mno
+
+# Posesivni pridjevi tvoreni od imenica
+SFX R Y 42
+SFX R   0   ov      [^aeiyćšoc]     rd:muš br:jed vr:pri pž:nom
+SFX R   0   ovi     [^aeiyćšoc]     rd:muš br:mno vr:pri pž:nom
+SFX R   0   ova     [^aeiyćšoc]     rd:žen br:jed vr:pri pž:nom
+SFX R   0   ove     [^aeiyćšoc]     rd:žen br:mno vr:pri pž:nom
+SFX R   0   ovo     [^aeiyćšoc]     rd:sre br:jed vr:pri pž:nom
+SFX R   0   ova     [^aeiyćšoc]     rd:sre br:mno vr:pri pž:nom
+SFX R   a   in      a               rd:muš br:jed vr:pri pž:nom
+SFX R   a   ini     a               rd:muš br:mno vr:pri pž:nom
+SFX R   a   ina     a               rd:žen br:jed vr:pri pž:nom
+SFX R   a   ine     a               rd:žen br:mno vr:pri pž:nom
+SFX R   a   ino     a               rd:sre br:jed vr:pri pž:nom
+SFX R   a   ina     a               rd:sre br:mno vr:pri pž:nom
+SFX R   e   in      e               rd:muš br:jed vr:pri pž:nom
+SFX R   e   ini     e               rd:muš br:mno vr:pri pž:nom
+SFX R   e   ina     e               rd:žen br:jed vr:pri pž:nom
+SFX R   e   ine     e               rd:žen br:mno vr:pri pž:nom
+SFX R   e   ino     e               rd:sre br:jed vr:pri pž:nom
+SFX R   e   ina     e               rd:sre br:mno vr:pri pž:nom
+SFX R   0   ev      [ćš]            rd:muš br:jed vr:pri pž:nom
+SFX R   0   evi     [ćš]            rd:muš br:mno vr:pri pž:nom
+SFX R   0   eva     [ćš]            rd:žen br:jed vr:pri pž:nom
+SFX R   0   eve     [ćš]            rd:žen br:mno vr:pri pž:nom
+SFX R   0   evo     [ćš]            rd:sre br:jed vr:pri pž:nom
+SFX R   0   eva     [ćš]            rd:sre br:mno vr:pri pž:nom
+SFX R   0   jev     [iy]            rd:muš br:jed vr:pri pž:nom
+SFX R   0   jevi    [iy]            rd:muš br:mno vr:pri pž:nom
+SFX R   0   jeva    [iy]            rd:žen br:jed vr:pri pž:nom
+SFX R   0   jeve    [iy]            rd:žen br:mno vr:pri pž:nom
+SFX R   0   jevo    [iy]            rd:sre br:jed vr:pri pž:nom
+SFX R   0   jeva    [iy]            rd:sre br:mno vr:pri pž:nom
+SFX R   0   v       o               rd:muš br:jed vr:pri pž:nom
+SFX R   0   vi      o               rd:muš br:mno vr:pri pž:nom
+SFX R   0   va      o               rd:žen br:jed vr:pri pž:nom
+SFX R   0   ve      o               rd:žen br:mno vr:pri pž:nom
+SFX R   0   vo      o               rd:sre br:jed vr:pri pž:nom
+SFX R   0   va      o               rd:sre br:mno vr:pri pž:nom
+SFX R   ac  čev     ac              rd:muš br:jed vr:pri pž:nom
+SFX R   ac  čevi    ac              rd:muš br:mno vr:pri pž:nom
+SFX R   ac  čeva    ac              rd:žen br:jed vr:pri pž:nom
+SFX R   ac  čeve    ac              rd:žen br:mno vr:pri pž:nom
+SFX R   ac  čevo    ac              rd:sre br:jed vr:pri pž:nom
+SFX R   ac  čeva    ac              rd:sre br:mno vr:pri pž:nom
 
 SFX W Y 5
 SFX W   iti  jiv  .
