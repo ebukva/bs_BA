@@ -28,3 +28,8 @@ U TextMate 1, korištenje je isto kao u OSu. U TextMate 2 (alfa), izaberi Edit >
 ## Licenca
 
 [GNU Lesser General Public License](http://www.gnu.org/licenses/lgpl-3.0.html)
+
+bs_BA
+=====
+
+Dictionary and affix rules for spell check in Bosnian.
